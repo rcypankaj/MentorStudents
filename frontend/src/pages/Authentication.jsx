@@ -25,11 +25,14 @@ export async function action({ request }) {
   };
   if (mode === "signup") authData.passwordConfirm = data.get("passwordConfirm");
   let response;
-  response = await fetch("http://localhost:8000/api/v1/users/" + mode, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(authData),
-  });
+  response = await fetch(
+    "https://authentication-toag.onrender.com/api/v1/users/" + mode,
+    {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(authData),
+    }
+  );
 
   if (
     response.status === 422 ||
