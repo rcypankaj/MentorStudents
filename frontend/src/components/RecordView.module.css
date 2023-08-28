@@ -1,0 +1,28 @@
+.recordContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.button-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 1rem;
+}
+
+.button-flex button {
+  padding: 0.3rem;
+  font: inherit;
+  border: none;
+  outline: none;
+  text-decoration: none;
+}
+
+.button-flex button:hover {
+  background: none;
+  color: white;
+  background-color: rgb(83, 85, 87);
+}

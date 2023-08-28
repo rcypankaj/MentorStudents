@@ -1,0 +1,62 @@
+.title {
+  text-align: center;
+}
+
+.audio-controls {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.audio-control audio,
+a {
+  display: block;
+  text-align: center;
+}
+
+.audio-control a {
+  .video-control a {
+    text-align: center;
+    text-decoration: none;
+    color: aqua;
+  }
+}
+
+.audio-player {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.audio-player,
+.recorded-player {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.live-player {
+  height: 200px;
+  width: 400px;
+  border: 1px solid #646cff;
+  margin-bottom: 30px;
+}
+
+.recorded-player video {
+  height: 400px;
+  width: 800px;
+}
+
+.audio-controls button {
+  padding: 0.3rem;
+  margin-top: 1rem;
+  font: inherit;
+  border: none;
+  outline: none;
+  text-decoration: none;
+}
+
+.audio-controls button:hover {
+  background: none;
+  color: white;
+  background-color: rgb(83, 85, 87);
+}

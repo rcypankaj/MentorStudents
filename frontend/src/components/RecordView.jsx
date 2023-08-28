@@ -1,38 +1,26 @@
-import { useRef, useState } from "react";
+import { useState } from "react";
+import VideoRecorder from "../components/Recorder/VideoRecorder";
+import AudioRecorder from "../components/Recorder/AudioRecorder";
+
+import classes from "./RecordView.module.css";
 
 const RecordView = () => {
-  const [permission, setPermission] = useState(false);
-  const [stream, setStream] = useState(null);
-
-  const getMicrophonePermission = async () => {
-    if ("MediaRecorder" in window) {
-      try {
-        const streamData = await navigator.mediaDevices.getUserMedia({
-          audio: true,
-          video: false,
-        });
-        setPermission(true);
-        setStream(streamData);
-      } catch (err) {
-        alert(err.message);
-      }
-    } else {
-      alert("The MediaRecorder API is not supported in your browser.");
-    }
+  let [recordOption, setRecordOption] = useState("video");
+  const toggleRecordOption = (type) => {
+    return () => {
+      setRecordOption(type);
+    };
   };
   return (
-    <div>
-      <h2>Audio Recorder</h2>
-      <main>
-        <div className="audio-controls">
-          {!permission ? (
-            <button onClick={getMicrophonePermission} type="button">
-              Get Microphone
-            </button>
-          ) : null}
-          {permission ? <button type="button">Record</button> : null}
-        </div>
-      </main>
+    <div className={classes.recordContainer}>
+      <h1>React Media Recorder</h1>
+      <div className={classes["button-flex"]}>
+        <button onClick={toggleRecordOption("video")}>Record Video</button>
+        <button onClick={toggleRecordOption("audio")}>Record Audio</button>
+      </div>
+      <div>
+        {recordOption === "video" ? <VideoRecorder /> : <AudioRecorder />}
+      </div>
     </div>
   );
 };
